@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Sora:wght@600&display=swap');
+body{
+    background-color: #dedee0;
+    font-family: 'Quicksand';
+}
+.container{
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 600px;
+    overflow: hidden;
+}
+.header{
+    position: absolute;
+    color: #dedee0;
+    margin: 10px 30px;
+    margin: 10px 30px;
+}
+.logo{
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    display: inline-block;
+}
+.header ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+    transform: translate(0, -14px);
+}
+.header ul li{
+    display: inline-block;
+    font-size: 13px;
+    margin-left: 20px;
+}
+#birt{
+    position: absolute;
+    z-index: 1111111111111;
+    right: 50%;
+    bottom: 25%;
+    transition: 1.5s;
+    transform: rotateY(130deg) rotate(10deg);
+}
+#birt img{
+    width: 350px;
+    /* infinite: lặp mãi mãi /// alternate: theo chiều ngược lại */
+    animation: birt 1s ease-in-out infinite alternate;
+}
+@keyframes birt {
+    0%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: none;
+}
+.item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+.item .content{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 20px 40px 30px 0;
+    color: #eee;
+}
+.item h2{
+    font-family: 'Sora';
+    font-size: 30px;
+}
+.item .content1{
+    margin-top: 30px;
+    padding: 0;
+}
+.item .button{
+    margin: 30px 0;
+    border: 1px solid #eee;
+    width: max-content;
+    padding: 10px 20px;
+    transition: 0.5s;
+}
+.item .button:hover{
+    background-color: #dedee0;
+    color: #000;
+}
+.active, .hide{
+    display: block;
+}
+.active{
+    z-index: 1111;
+}
+.active img{
+    animation: showimg 1s ease-in-out 1 forwards;
+}
+.hide img{
+    animation: hideimg 1s ease-in-out 1 forwards;
+}
+@keyframes showimg {
+    0%{
+        transform: translate(100%, 0);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
+@keyframes hideimg {
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(-100%,0);
+    }
+}
+.active .content h2{
+    opacity: 0;
+    animation: showcontent 0.7s ease-in-out 1s 1 forwards;
+}
+.active .content1{
+    opacity: 0;
+    animation: showcontent 0.7s ease-in-out 1.2s 1 forwards;
+}
+.active .button{
+    opacity: 0;
+    animation: showcontent 0.7s ease-in-out 1.4s 1 forwards;
+}
+@keyframes showcontent {
+    0%{
+        filter: blur(33px);
+        transform: translate(100%, 0);
+    }
+    100%{
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate(0,0);
+    }
+}
+.hide h2,
+.hide .content1,
+.hide .button{
+    animation: hidecontent 1.7s ease-in-out 1 forwards;
+}
+@keyframes hidecontent {
+    0%{
+        filter: blur(0px);
+        transform: translate(0, 0);
+    }
+    100%{
+        opacity: 0;
+        filter: blur(33px);
+        transform: translate(-100%,0);
+    }
+}
+.start #birt{
+    animation: startbirt 3s ease-in-out 1 forwards;
+}
+@keyframes startbirt {
+    0%{
+        filter: blur(0px);
+        transform: translate(0, 0);
+    }
+    50%{
+        right: 31%;
+        bottom: 16%;
+        transform: rotateY(130deg) rotate(10deg);
+    }
+    70%{
+        bottom: 27%;
+        transform: rotateY(160deg) rotate(10deg);
+    }
+    100%{
+        right: 50%;
+        bottom: 25%;
+    }
+}
+#next{
+    position: absolute;
+    z-index: 111111111;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    border: none;
+    background-color: #fff;
+    transition: 0.5s;
+}
+#next:hover{
+    background-color: rgb(117, 117, 4);
+    color: #fff;
+}
+#start::before{
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    content: '';
+    background-color: rgb(201, 96, 58);
+    z-index: 11111111;
+    animation: time 3s ease-in-out 1 forwards;
+}
+@keyframes startbirt {
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+  
+}
